@@ -4,7 +4,7 @@ import 'Styles/index.less';
 import * as serviceWorker from 'Styles/Js/serviceWorker';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
-import { HashRouter as Router} from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 import HomeView from "Modules/HomeView";
 
 
