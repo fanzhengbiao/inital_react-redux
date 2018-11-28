@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import Home from 'Modules/Home';
-import { Button } from 'antd';
+import { Layout } from 'antd';
+import NavBarComponent from 'Modules/Component/NavBarComponent';
+const { Footer } = Layout;
 
 
 class HomeView extends Component {
@@ -16,17 +18,25 @@ class HomeView extends Component {
     return <Home {...props}/>
   }
 
+  _renderFooter = () => {
+    return (
+      <Footer style={{ textAlign: 'center' }}>
+        Ant Design ©2018 Created by Ant UED
+      </Footer>
+    )
+  }
+
   render() {
     return (
-      <div className = 'App'>
-        <header className="App-header">
-          <Route path="/" ref={this.saveRef('nav-bar')} component={this.getHomeView} />
-          <div className = 'content'>
-            <Button type="primary">Button</Button>
-            <Route exact path="/add" component={this.getHomeView}/>
-            <Route exact path="/update/:param" component={this.getHomeView}/>
+      <div className = 'lj_demo'>
+        <Layout>
+          <Route path="/" ref={this.saveRef('nav-bar')} component={NavBarComponent} />
+          <div className = 'lj_demo_content'>
+            <Route path="/" exact render={()=> <Redirect to='/home' /> } />
+            <Route path="/home" component={this.getHomeView}/>
           </div>
-        </header>
+          {this._renderFooter()}
+        </Layout>
       </div>
     );
   }
