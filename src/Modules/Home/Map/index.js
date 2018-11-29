@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom'
 import SearchBox from './SearchBox';
 const MAP_SEARCH_KEY_WORD = 'map_key_word_search';
 function createSearchBoxPosition(){
-    this.defaultAnchor = window.BMAP_ANCHOR_TOP_LEFT;
-    this.defaultOffset = new BMap.Size(10, 10);
+  this.defaultAnchor = window.BMAP_ANCHOR_TOP_LEFT;
+  this.defaultOffset = new BMap.Size(10, 10);
 }
 
 
@@ -55,12 +55,12 @@ export default class Map extends Component {
 
   setMarker(_point) {
     if ((!this.marker) && (this.map)){
-        this.marker = new BMap.Marker(_point);
-        this.map.addOverlay(this.marker);
-        this.marker.enableDragging();
-        this.marker.addEventListener("dragend", this.markerMoved);
+      this.marker = new BMap.Marker(_point);
+      this.map.addOverlay(this.marker);
+      this.marker.enableDragging();
+      this.marker.addEventListener('dragend', this.markerMoved);
     } else {
-        this.marker.setPosition(_point);
+      this.marker.setPosition(_point);
     }
   }
 
@@ -70,17 +70,12 @@ export default class Map extends Component {
     this.info.lat = point.lat;
   }
 
-  openInfoWindow = () => {
-    var point = new BMap.Point(this.info.lng, this.info.lat);
-    this.map.openInfoWindow(this.infoWindow, point);
-  }
-
   onIdle = () => {
     let BMapObject = window.BMap;
     if (typeof(BMapObject) === 'object') {
       this.loadmap();
     } else {
-      setTimeout(this.onIdle,100);
+      setTimeout(this.onIdle, 100);
     }
   }
 
