@@ -1,4 +1,7 @@
 const zh_cn = {
+  map: {
+    placeholder: '搜地点，搜公交'
+  },
   header: {
     title: [
       { key: '1', text: '功能集合'},
@@ -13,7 +16,7 @@ const zh_cn = {
         text: '地图',
         type: 'user',
         children: [
-          { key: 'nav_1_1', text: 'option1', route: '/map'},
+          { key: 'nav_1_1', text: '自定义搜索控件', route: '/map'},
           { key: 'nav_1_2', text: 'option2', route: '/chart'},
           { key: 'nav_1_3', text: 'option3', route: '/progress'},
           { key: 'nav_1_4', text: 'option4', route: '/countdown'}
