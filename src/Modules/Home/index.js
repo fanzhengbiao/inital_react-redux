@@ -3,8 +3,10 @@ import { Layout, Menu, Icon } from 'antd';
 import { array } from 'prop-types';
 import { Route } from "react-router-dom";
 import zh_cn from 'Styles/Js/localMessage';
+import Map from './Map'
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
+const layout_count = { padding: '0 50px' };
 const DEFAULT_MENUS_KEYS = Object.keys(zh_cn.leftMenus.SubMenu);
 
 
@@ -19,13 +21,18 @@ class Home extends Component {
     default_open_key: [zh_cn.leftMenus.SubMenu[DEFAULT_MENUS_KEYS[0]].key]
   };
 
+  _changeLocalRouter = (route_path) => {
+    const { url } = this.props.match;
+    this.props.history.replace(`${url}${route_path}`);
+  }
+
   _renderSubMenu = () => {
     const subMenus = zh_cn.leftMenus.SubMenu;
     return DEFAULT_MENUS_KEYS.map(menu_key => {
       const childre_tmp = subMenus[menu_key];
       const childrenItem = childre_tmp.children && childre_tmp.children.map(child => {
         return (
-          <Menu.Item key={child.key}>
+          <Menu.Item key={child.key} onClick={() => this._changeLocalRouter(child.route)}>
             {child.text}
           </Menu.Item>
         )
@@ -55,12 +62,13 @@ class Home extends Component {
   }
 
   _renderContent = () => {
+    const { url } = this.props.match;
     return (
-      <Content style={{ padding: '0 24px', minHeight: 600 }}>
-        <Route exact path="/map" component={this._getHomeView}/>
-        <Route exact path="/chart" component={this._getHomeView}/>
-        <Route exact path="/progress" component={this._getHomeView}/>
-        <Route exact path="/countdown" component={this._getHomeView}/>
+      <Content>
+        <Route exact path={`${url}/map`} component={Map}/>
+        <Route exact path={`${url}/chart`} component={this._getHomeView}/>
+        <Route exact path={`${url}/progress`} component={this._getHomeView}/>
+        <Route exact path={`${url}/countdown`} component={this._getHomeView}/>
       </Content>
     )
   }
@@ -68,8 +76,8 @@ class Home extends Component {
   render() {
     console.log('====', this.props)
     return (
-      <Content style={{ padding: '0 50px' }}>
-        <Layout style={{ padding: '24px 0', background: '#fff' }}>
+      <Content style={{ layout_count }}>
+        <Layout>
           {this._renderSider()}
           {this._renderContent()}
         </Layout>
