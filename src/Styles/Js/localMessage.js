@@ -28,10 +28,10 @@ const zh_cn = {
         text: '图标',
         type: 'laptop',
         children: [
-          { key: 'nav_2_1', text: 'option5', route: 'map'},
-          { key: 'nav_2_2', text: 'option6', route: 'map'},
-          { key: 'nav_2_3', text: 'option7', route: 'map'},
-          { key: 'nav_2_4', text: 'option8', route: 'map'}
+          { key: 'nav_2_1', text: 'option5', route: '/test'},
+          { key: 'nav_2_2', text: 'option6', route: '/test1'},
+          { key: 'nav_2_3', text: 'option7', route: '/test2'},
+          { key: 'nav_2_4', text: 'option8', route: '/test3'}
         ]
       },
       nav_3: {
@@ -39,8 +39,8 @@ const zh_cn = {
         text: '其他',
         type: 'notification',
         children: [
-          { key: 'nav_3_1', text: 'option9', route: 'map'},
-          { key: 'nav_3_2', text: 'option10', route: 'map'}
+          { key: 'nav_3_1', text: 'option9', route: '/test4'},
+          { key: 'nav_3_2', text: 'option10', route: '/test5'}
         ]
       }
     }

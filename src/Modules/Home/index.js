@@ -18,13 +18,37 @@ class Home extends Component {
     default_open_key: array
   };
   static defaultProps = {
-    default_select_key:  [`${zh_cn.leftMenus.SubMenu[DEFAULT_MENUS_KEYS[0]].key}_1`],
-    default_open_key: [zh_cn.leftMenus.SubMenu[DEFAULT_MENUS_KEYS[0]].key]
+    default_select_key:  [],
+    default_open_key: []
   };
 
-  _changeLocalRouter = (route_path) => {
+  constructor(props) {
+    super(props);
+    this.default_value = {
+      select_key: this._getStorageSelectKey().select_key,
+      open_key: this._getStorageSelectKey().open_key
+    };
+  }
+
+  _getStorageSelectKey = () => {
+    const storage_key = sessionStorage.getItem('slice_session_key');
+    if (!storage_key || storage_key === null) {
+      return {
+        select_key: [`${zh_cn.leftMenus.SubMenu[DEFAULT_MENUS_KEYS[0]].key}_1`],
+        open_key: [zh_cn.leftMenus.SubMenu[DEFAULT_MENUS_KEYS[0]].key]
+      };
+    } else {
+      return JSON.parse(storage_key);
+    }
+  }
+
+  _changeLocalRouter = (child, open_key) => {
     const { url } = this.props.match;
-    this.props.history.replace(`${url}${route_path}`);
+    sessionStorage.setItem('slice_session_key', JSON.stringify({
+      select_key: [child.key],
+      open_key: [open_key]
+    }));
+    this.props.history.replace(`${url}${child.route}`);
   }
 
   _renderSubMenu = () => {
@@ -33,7 +57,7 @@ class Home extends Component {
       const childre_tmp = subMenus[menu_key];
       const childrenItem = childre_tmp.children && childre_tmp.children.map(child => {
         return (
-          <Menu.Item key={child.key} onClick={() => this._changeLocalRouter(child.route)}>
+          <Menu.Item key={child.key} onClick={() => this._changeLocalRouter(child, menu_key)}>
             {child.text}
           </Menu.Item>
         )
@@ -52,8 +76,8 @@ class Home extends Component {
       <Sider width={200} style={{ background: '#fff' }}>
         <Menu
           mode="inline"
-          defaultSelectedKeys={this.props.default_select_key}
-          defaultOpenKeys={this.props.default_open_key}
+          defaultSelectedKeys={this.default_value.select_key}
+          defaultOpenKeys={this.default_value.open_key}
           style={{ height: '100%' }}
         >
           {this._renderSubMenu()}

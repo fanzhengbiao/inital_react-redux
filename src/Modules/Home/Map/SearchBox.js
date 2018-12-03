@@ -134,10 +134,10 @@ class SearchBox extends Component {
 
   render() {
     return [
-      <div className='map_key_word_search'>
+      <div className='map_key_word_search' key='search_box'>
         {this.renderSearchBox()}
       </div>,
-      <div id='search_result_panel' ref={ref => this.mapSearchRef = ref} />
+      <div id='search_result_panel' ref={ref => this.mapSearchRef = ref} key='seach_result'/>
     ]
   }
 }
