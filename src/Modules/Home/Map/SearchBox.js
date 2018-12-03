@@ -11,10 +11,6 @@ class SearchBox extends Component {
   constructor(props) {
     super(props);
     this.my_value = '';
-    this.auto_complete = new BMap.Autocomplete({
-      'input': 'suggestId',
-      'location': props.map
-    });
     this.state = {
       input_value: ''
     }
@@ -24,6 +20,10 @@ class SearchBox extends Component {
     this.local_map = new BMap.LocalSearch(this.props.map, {
       renderOptions: {map: this.props.map, panel: 'search_result_panel'},
       pageCapacity: PAGE_CAPA_CITY
+    });
+    this.auto_complete = new BMap.Autocomplete({
+      'input': 'suggestId',
+      'location': this.props.map
     });
     this.searchInputEnter();
     this.props.map.addEventListener('click',this.onMapClick);

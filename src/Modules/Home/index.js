@@ -3,7 +3,8 @@ import { Layout, Menu, Icon } from 'antd';
 import { array } from 'prop-types';
 import { Route } from "react-router-dom";
 import zh_cn from 'Styles/Js/localMessage';
-import Map from './Map'
+import Map from './Map';
+import SliceBoxOne from './SliceBox/SliceBoxOne';
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
 const layout_count = { padding: '0 50px' };
@@ -66,6 +67,7 @@ class Home extends Component {
     return (
       <Content>
         <Route exact path={`${url}/map`} component={Map}/>
+        <Route exact path={`${url}/slicebox`} component={SliceBoxOne}/>
         <Route exact path={`${url}/chart`} component={this._getHomeView}/>
         <Route exact path={`${url}/progress`} component={this._getHomeView}/>
         <Route exact path={`${url}/countdown`} component={this._getHomeView}/>

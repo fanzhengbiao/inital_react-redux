@@ -13,13 +13,14 @@ const zh_cn = {
     SubMenu: {
       nav_1: {
         key: 'nav_1',
-        text: '地图',
+        text: '樊正彪',
         type: 'user',
         children: [
-          { key: 'nav_1_1', text: '自定义搜索控件', route: '/map'},
-          { key: 'nav_1_2', text: 'option2', route: '/chart'},
+          { key: 'nav_1_1', text: '添加自定义控件', route: '/map'},
+          { key: 'nav_1_2', text: 'SliceBox3D', route: '/slicebox'},
           { key: 'nav_1_3', text: 'option3', route: '/progress'},
-          { key: 'nav_1_4', text: 'option4', route: '/countdown'}
+          { key: 'nav_1_4', text: 'option4', route: '/countdown'},
+          { key: 'nav_1_5', text: 'chart', route: '/chart'}
         ]
       },
       nav_2: {
