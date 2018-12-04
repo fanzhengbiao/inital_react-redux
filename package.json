@@ -39,6 +39,8 @@
     "less-loader": "^4.1.0",
     "lodash": "^4.17.11",
     "mini-css-extract-plugin": "0.4.3",
+    "mock": "^0.1.1",
+    "mockjs": "^1.0.1-beta3",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "pnp-webpack-plugin": "1.1.0",
     "postcss-flexbugs-fixes": "4.1.0",

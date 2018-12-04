@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { array } from 'prop-types';
 import { Table } from 'antd';
-import { columns, data } from './columns';
+import { columns, getData } from './columns';
 
 
 export default class AntdTable extends Component {
@@ -33,7 +33,7 @@ export default class AntdTable extends Component {
         bordered
         loading={false}
         columns={columns}
-        dataSource={data}
+        dataSource={getData()}
         rowSelection={this._getSelection()}
         // expandedRowRender={record => <p style={{ margin: 0 }}>{record.description}</p>}
       />

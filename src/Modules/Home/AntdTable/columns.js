@@ -1,5 +1,7 @@
 import React from 'react';
+import Mock from 'mockjs';
 import { Icon, Divider } from 'antd';
+const Random = Mock.Random;
 
 
 
@@ -17,19 +19,29 @@ export const columns = [{
   dataIndex: 'age',
   sorter: (a, b) => a.age - b.age
 }, {
+  title: 'Phone',
+  width: '15%',
+  align: 'center',
+  dataIndex: 'phone',
+  sorter: (a, b) => a.phone - b.phone
+}, {
   title: 'Address',
-  width: '40%',
+  width: '25%',
   align: 'center',
   dataIndex: 'address',
 }, {
+  title: '入网时间',
+  width: '15%',
+  align: 'center',
+  dataIndex: 'time',
+  sorter: (a, b) => new Date(a.time).getTime() - new Date(b.time).getTime()
+}, {
   title: 'Action',
   key: 'action',
-  width: '35%',
+  width: '18%',
   align: 'center',
   render: (text, record) => (
     <span>
-      <a href="javascript:;">add</a>
-      <Divider type="vertical" />
       <a href="javascript:;">delete</a>
       <Divider type="vertical" />
       <a href="javascript:;" className="ant-dropdown-link">
@@ -40,25 +52,19 @@ export const columns = [{
 }];
 
 
-export const data = [{
-  key: '1',
-  name: 'John Brown',
-  age: 32,
-  address: 'New York No. 1 Lake Park',
-  description: 'My name is Joe Black, I am 32 years old, living in Sidney No. 1 Lake Park.'
-}, {
-  key: '2',
-  name: 'Jim Green',
-  age: 42,
-  address: 'London No. 1 Lake Park',
-}, {
-  key: '3',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-}, {
-  key: '4',
-  name: 'Disabled User',
-  age: 99,
-  address: 'Sidney No. 1 Lake Park',
-}];
+export const getData = () => {
+  const data = [];
+  for (let i = 0; i <= 21; i++) {
+    data.push({
+      key: i.toString(),
+      name: Random.cname(),
+      age: Random.integer(1, 100),
+      phone: Mock.mock({
+        'regexp': /^1[0-9]{10}/
+      }).regexp,
+      time: Random.datetime(),
+      address: Random.county(true),
+    });
+  }
+  return data;
+};
