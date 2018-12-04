@@ -16,9 +16,9 @@ const zh_cn = {
         text: '樊正彪',
         type: 'user',
         children: [
-          { key: 'nav_1_1', text: '添加自定义控件', route: '/map'},
+          { key: 'nav_1_1', text: 'MapComponent', route: '/map'},
           { key: 'nav_1_2', text: 'SliceBox3D', route: '/slicebox'},
-          { key: 'nav_1_3', text: 'option3', route: '/progress'},
+          { key: 'nav_1_3', text: 'Antd-Table', route: '/antdTable'},
           { key: 'nav_1_4', text: 'option4', route: '/countdown'},
           { key: 'nav_1_5', text: 'chart', route: '/chart'}
         ]
@@ -28,7 +28,7 @@ const zh_cn = {
         text: '图标',
         type: 'laptop',
         children: [
-          { key: 'nav_2_1', text: 'option5', route: '/test'},
+          { key: 'nav_2_1', text: 'option5', route: '/progress'},
           { key: 'nav_2_2', text: 'option6', route: '/test1'},
           { key: 'nav_2_3', text: 'option7', route: '/test2'},
           { key: 'nav_2_4', text: 'option8', route: '/test3'}
