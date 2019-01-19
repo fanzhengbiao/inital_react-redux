@@ -19,7 +19,7 @@ const zh_cn = {
           { key: 'nav_1_1', text: 'MapComponent', route: '/map'},
           { key: 'nav_1_2', text: 'SliceBox3D', route: '/slicebox'},
           { key: 'nav_1_3', text: 'Antd-Table', route: '/antdTable'},
-          { key: 'nav_1_4', text: 'option4', route: '/countdown'},
+          { key: 'nav_1_4', text: 'StyleComponent', route: '/styleComponent'},
           { key: 'nav_1_5', text: 'chart', route: '/chart'}
         ]
       },
