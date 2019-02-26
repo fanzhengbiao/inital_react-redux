@@ -39,7 +39,7 @@ const zh_cn = {
         text: '其他',
         type: 'notification',
         children: [
-          { key: 'nav_3_1', text: 'option9', route: '/test4'},
+          { key: 'nav_3_1', text: '工资计算', route: '/wages'},
           { key: 'nav_3_2', text: 'option10', route: '/test5'}
         ]
       }

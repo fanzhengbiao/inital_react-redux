@@ -7,6 +7,7 @@ import Map from './Map';
 import SliceBoxOne from './SliceBox/SliceBoxOne';
 import AntdTable from './AntdTable';
 import StyleComponent from './StyleComponent';
+import WagesComponent from './WagesComponent';
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
 const layout_count = { padding: '0 50px' };
@@ -97,6 +98,7 @@ class Home extends Component {
         <Route exact path={`${url}/antdTable`} component={AntdTable}/>
         <Route exact path={`${url}/styleComponent`} component={StyleComponent}/>
         <Route exact path={`${url}/countdown`} component={this._getHomeView}/>
+        <Route exact path={`${url}/wages`} component={WagesComponent}/>
       </Content>
     )
   }

@@ -6,15 +6,19 @@ import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router} from "react-router-dom";
 import HomeView from "Modules/HomeView";
+import configureStore from './Store';
 
 
 window.onerror = () => {  //当js出错时调用
   return true;
 }
 
+// Create redux store
+const store = configureStore();
+
 ReactDOM.render(
   <AppContainer>
-    <Provider>
+    <Provider store={store}>
       <Router>
         <HomeView/>
       </Router>
